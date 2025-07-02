@@ -100,13 +100,16 @@ public class DynamicArray {
      * Avoids gaps in between when a shift happens. A shift will duplicate a position leaving an empty slot after.
      */
     public String remove(int index) {
-        String removed = null; //null if the index is out of bounds.
-        if (index >= 0 && index < this.occupancy) { //remove a slot that exists, make sure index is 0 or greater and only checked by the elements that have been filled, not the whole array.
-            removed = this.underlying[index]; //remove a value.
-            for (int i = index; i < this.occupancy - 1; i++) { //shift to the left.
+        String removed = null; //null if the index is out of bounds. Removed hold the value that will be taken out.
+        if (index >= 0 && index < this.occupancy) { //Remove a slot that exists, make sure index is 0 or greater and only checked by the elements that have been filled, not the whole array.
+            removed = this.underlying[index]; //Remove a value
+             //Shift one slot to the left, so there is no gap in between the elements.
+            for (int i = index; i < this.occupancy - 1; i++) { 
                 this.underlying[i] = this.underlying[i+1]; 
             } 
-        } return index;
+            this.underlying[this.occupancy - 1] = null; //clear the duplicate slot and set it to null.
+            this.occupancy = this.occupancy - 1; //decrease occupancy because one slot and so longer being used.
+        } return removed;
     }
 
     /** overload remove */ 
