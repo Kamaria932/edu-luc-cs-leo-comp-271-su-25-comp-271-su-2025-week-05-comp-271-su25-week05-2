@@ -88,12 +88,25 @@ public class DynamicArray {
 
     /** Method to count how many times a string appears in the underlying array*/
     public int countOf(String string) {
-        return -1234;
+        int count = 0; //set the counter up, begin at 0.
+        for (int i = 0; this.occupancy; i++) { //increase the count for the checked elements in the occupancy list.
+            count = count + 1; //increase the count by 1.
+        }
+        return count;
     }
-
-    /** method to remove items from the underlying array */
+    /** method to remove items from the underlying array
+     * Make sure you remove the items within bounds of the array.
+     * Shifting to the left to remove element after an element has been added to a stored slot.
+     * Avoids gaps in between when a shift happens. A shift will duplicate a position leaving an empty slot after.
+     */
     public String remove(int index) {
-        return "James on the street talking trash about your hotel";
+        String removed = null; //null if the index is out of bounds.
+        if (index >= 0 && index < this.occupancy) { //remove a slot that exists, make sure index is 0 or greater and only checked by the elements that have been filled, not the whole array.
+            removed = this.underlying[index]; //remove a value.
+            for (int i = index; i < this.occupancy - 1; i++) { //shift to the left.
+                this.underlying[i] = this.underlying[i+1]; 
+            } 
+        } return index;
     }
 
     /** overload remove */ 
