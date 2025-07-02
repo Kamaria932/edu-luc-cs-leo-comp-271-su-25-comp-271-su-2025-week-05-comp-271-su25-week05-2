@@ -89,7 +89,9 @@ public class DynamicArray {
     /** Method to count how many times a string appears in the underlying array*/
     public int countOf(String string) {
         int count = 0; //set the counter up, begin at 0.
-        for (int i = 0; this.occupancy; i++) { //increase the count for the checked elements in the occupancy list.
+        //increase the count for the checked elements in the occupancy list.
+        for (int i = 0; this.occupancy; i++) { 
+            if (string.equals(this.underlying[i]));
             count = count + 1; //increase the count by 1.
         }
         return count;
@@ -118,13 +120,13 @@ public class DynamicArray {
        int index = this.indexOf(string); //Find the position.
        if (index != -1) {
         removed = this.remove(index); //removed the index of the matched string
-       }return index;
+       }return removed;
     }
 
     /** Complete this method */
     public String toString() {
-        return "to be done shortly"; // blatant violation of magic values clause
-                                     // serves as reminder to finish this method
+        StringBuilder sb = new StringBuilder();
+        }
     }
 
 } // class DynamicArray
