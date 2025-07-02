@@ -114,7 +114,11 @@ public class DynamicArray {
 
     /** overload remove */ 
     public String remove(String string) {
-        return "James on the street talking trash about your hotel";
+       String removed = null; //Set to default if not found.
+       int index = this.indexOf(string); //Find the position.
+       if (index != -1) {
+        removed = this.remove(index); //removed the index of the matched string
+       }return index;
     }
 
     /** Complete this method */
