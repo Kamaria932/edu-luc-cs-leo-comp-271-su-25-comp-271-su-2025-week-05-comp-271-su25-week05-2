@@ -128,9 +128,6 @@ public class DynamicArray {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.occupancy; i++ ) {
             sb.append(this.underlying[i]);
-            if (i < this.occupancy - 1) {
-                sb.append(", ");
-            }
         }
         return sb.toString();
     }
