@@ -90,7 +90,7 @@ public class DynamicArray {
     public int countOf(String string) {
         int count = 0; //set the counter up, begin at 0.
         //increase the count for the checked elements in the occupancy list.
-        for (int i = 0; this.occupancy; i++) { 
+        for (int i = 0; i < this.occupancy; i++) { 
             if (string.equals(this.underlying[i]));
             count = count + 1; //increase the count by 1.
         }
@@ -128,5 +128,3 @@ public class DynamicArray {
         StringBuilder sb = new StringBuilder();
         }
     }
-
-} // class DynamicArray
