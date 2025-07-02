@@ -53,7 +53,7 @@ public class DynamicArray {
         // because we just doubled it in size or because there was enough
         // room for one more element to begin with.
         this.underlying[this.occupancy] = string;
-        this.occupancy++;
+        this.occupancy = this.occupancy + 1; //Add one to the elements that are already stored, meaning once another element is added, add 1 so that occupanmcy will equal the total number of elements in the array.
     } // method add
 
     /**
@@ -61,14 +61,29 @@ public class DynamicArray {
      * 
      * @return -1 if string not present, otherwise underlying array position of
      *         first occurrence of string.
+     * Search for the string and if it is the current index being checked stop the loop it is a match.
+     * No need to check the full array length because those slots are empty, or unused slots. Using occupancy will check every element that was already added and stored in a slot with valid strings.
+     * Make sure to use a portion of the array and record the first match.
+     * Ignore the other matches, take the first match since by default index will not be -1 because it is found.
      */
     public int indexOf(String string) {
-        return -1234;
+        int index = -1; //default if the first occurrance is not found.
+        //record the first position found index from the serached strings.
+        for (int i = 0; i < this.occupancy; i++){ 
+            if (index == -1 && string.equals(this.underlying[i])){ 
+                index = i;
+            }
+        }
+    return index;
     } // method indexOf
 
     /** Method to tell if a string exists in the underlying array */
     public boolean contains(String string) {
-        return false;
+        boolean found = false; //int in search method defaults to -1 if not found
+        if (this.indexOf(string) != -1) { //Found something
+            found = true;
+        }
+        return found;
     }
 
     /** Method to count how many times a string appears in the underlying array*/
