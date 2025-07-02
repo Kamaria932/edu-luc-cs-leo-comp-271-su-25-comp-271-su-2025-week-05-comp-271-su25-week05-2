@@ -123,7 +123,10 @@ public class DynamicArray {
        }return removed;
     }
 
-    /** Complete this method */
+    /** Complete this method
+     * Creat a string buildler to return the result
+     * Loop over every stored element from 0 to this.occupancy - 1   
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.occupancy; i++ ) {
